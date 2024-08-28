@@ -1,0 +1,56 @@
+:root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.date-input {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  font-family: 'Poppins';
+  font-weight: 800;
+  color:  hsl(0, 0%, 8%);
+}
+
+.date-input:focus {
+  border-color: hsl(259, 100%, 65%);
+  box-shadow: none;
+}
+
+.date-input::placeholder {
+  color: hsl(0, 1%, 44%);
+  font-size: 2rem;
+}
+
+.result-text {
+  font-size: 1.5rem;
+  font-family: 'Poppins';
+  font-weight: 800;
+  font-style: italic;
+  color: hsl(0, 0%, 8%);
+}
+
+.data-text {
+  font-size: 1rem;
+  font-family: 'Poppins';
+  font-weight: 600;
+  color: hsl(0, 1%, 44%);
+}
+
+.date-input.error {
+  border-color: hsl(0, 100%, 65%);
+}
+
+.date-input.error:focus {
+  border-color: hsl(0, 100%, 65%);
+}
