@@ -1,5 +1,6 @@
 import { Input } from 'antd';
 import { useState, useEffect } from 'react'
+import CountUp from 'react-countup';
 import './App.css'
 
 function App() {
@@ -113,9 +114,9 @@ function App() {
         <div className='absolute inset-1 flex items-center -top-8 md:-top-4'>
           <div className='w-full border-t border-neutralLightGrey px-5'></div>
         </div>
-        <div onClick={handleCalculate} className='absolute w-14 h-14 md:w-20 md:h-20 -top-4 right-[40%] md:right-0 bg-primaryPurple rounded-full p-4'>
+        <button onClick={handleCalculate} className='absolute w-14 h-14 md:w-20 md:h-20 -top-4 right-[40%] md:right-0 bg-primaryPurple rounded-full p-4 hover:bg-neutralOffBlack'>
           <img src="/icon-arrow.svg" alt="#" />
-        </div>
+        </button>
       </div>
 
       <div className='py-8'>
@@ -150,7 +151,13 @@ function DateInput({ label, value, onChange, placeholder, error }) {
 function ResultLine({label, value}) {
   return (
     <div className='flex items-start text-5xl md:text-9xl font-extrabold mb-2 result-text'>
-      <span className='text-primaryPurple mr-2'>{value}</span>
+      <span className='text-primaryPurple mr-2'>
+      {value === '--' ? (
+          '--'
+        ) : (
+          <CountUp end={parseInt(value)} duration={2} />
+        )}
+      </span>
       <span>{label}</span>
     </div>
   )
