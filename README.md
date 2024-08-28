@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/public/ScreenRecording.gif)
+![](/public/ScreenRecording3.gif)
 
 ### Links
 
