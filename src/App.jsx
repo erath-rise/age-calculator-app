@@ -10,6 +10,7 @@ function App() {
   const [result, setResult] = useState({ years: '--', months: '--', days: '--' })
   const [shouldCalculate, setShouldCalculate] = useState(false)
   const [errors, setErrors] = useState({ day: '', month: '', year: '' })
+  const [hasError, setHasError] = useState(false)
 
   useEffect(() => {
     if (shouldCalculate) {
@@ -47,6 +48,7 @@ function App() {
       }
     }
     setErrors(newErrors);
+    setHasError(!isValid);
     return isValid;
   }
 
@@ -120,10 +122,9 @@ function App() {
       </div>
 
       <div className='py-8'>
-        <ResultLine label="years" value={result.years} />
-        <ResultLine label="months" value={result.months} />
-        <ResultLine label="days" value={result.days} />
-
+        <ResultLine label="years" value={result.years} hasError={hasError} />
+        <ResultLine label="months" value={result.months} hasError={hasError} />
+        <ResultLine label="days" value={result.days} hasError={hasError} />
       </div>
     </div>
   )
@@ -148,11 +149,11 @@ function DateInput({ label, value, onChange, placeholder, error }) {
   )
 }
 
-function ResultLine({label, value}) {
+function ResultLine({label, value, hasError}) {
   return (
     <div className='flex items-start text-5xl md:text-9xl font-extrabold mb-2 result-text'>
       <span className='text-primaryPurple mr-2'>
-      {value === '--' ? (
+      {value === '--' || hasError ? (
           '--'
         ) : (
           <CountUp end={parseInt(value)} duration={2} />

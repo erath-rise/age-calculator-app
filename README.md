@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](/public/ScreenRecording3.gif)
+![](/public/age-calculate.gif)
 
 ### Links
 
